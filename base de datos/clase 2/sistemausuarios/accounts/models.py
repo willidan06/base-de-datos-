@@ -16,13 +16,13 @@ class Profile(models.Model):
         return f"{self.user.username} ({self.role})"
 
 class Pokemon(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pokemons')  # Nuevo campo
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='pokemons', null=True, blank=True)
     nombre = models.CharField(max_length=100)
     tipo = models.CharField(max_length=50)
     nivel = models.IntegerField()
 
 class Habilidades(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='habilidades')  # Nuevo campo
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='habilidades', null=True, blank=True)
     habilidad = models.CharField(max_length=100)
     descripcion = models.TextField()
 
